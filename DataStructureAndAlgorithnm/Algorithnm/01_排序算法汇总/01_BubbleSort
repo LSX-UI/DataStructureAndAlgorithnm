@@ -1,0 +1,53 @@
+
+//冒泡排序在排序算法中的效率并不算高，但是其在概念上是最容易理解的。
+//对没有排序的各元素从头到尾进行依次比较相邻两个元素的大小关系。
+//直到最大值（或最小值）排到了数组的最后末尾的位置，再进行第二次循环操作。
+
+//2、冒泡排序的效率，随着数组长度的增加，其时间复杂度符合N^2/2，去除常数项系数之后使用大表示法为O(N^2 )属于效率比较低的一种排序算法了。
+
+class ArrayList{
+    constructor(){
+        this.array=[];
+    }
+
+    insert(item){
+       this.array.push(item);
+    }
+    toString(){
+        return this.array.join('-');
+    }
+
+    swapPosition(a,b){
+        let temp=this.array[a];
+        this.array[a]=this.array[b];
+        this.array[a]=temp;
+    }
+
+    bubbleSortFunction(){
+        //最外层的循环控制每次子循环的长度和次数
+        let length=this.array.length;
+        for(let j=length-1;j>=0;j--){
+        //最大值放到数组的最后面的位置,使用外循环中的变量控制每次循环的长度。
+        for(let i=0;i<j;i++){
+            if(this.array[i]>this.array[i+1]){
+            this.swapPosition(i,i+1)
+            }
+        }
+        }
+       
+    }
+
+}
+
+
+const arrayListExample=new ArrayList();
+arrayListExample.insert(120);
+arrayListExample.insert(20);
+arrayListExample.insert(170);
+arrayListExample.insert(70);
+arrayListExample.insert(65);
+arrayListExample.insert(98);
+console.log(arrayListExample.array);
+arrayListExample.bubbleSortFunction();
+console.log(arrayListExample.array)
+debugger;
